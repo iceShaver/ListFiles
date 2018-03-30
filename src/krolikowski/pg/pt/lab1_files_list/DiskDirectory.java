@@ -11,7 +11,7 @@ public final class DiskDirectory extends DiskElement {
     public DiskDirectory(File file) {
         super(file);
         children = new TreeSet<>();
-        Arrays.stream(file.listFiles()) // TODO: Check behaviour under Windows if dir is empty
+        Arrays.stream(file.listFiles())
                 .forEach(x -> children.add(x.isDirectory() ? new DiskDirectory(x) : new DiskFile(x)));
     }
 
